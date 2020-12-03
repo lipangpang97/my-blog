@@ -1,0 +1,12 @@
+/* 全局样式表 */
+html,body,#app{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+/* 修改#app的最大宽度为1280
+@media screen and (min-width:1280px){
+    #app{
+        width: 1280px;
+    }
+} */
