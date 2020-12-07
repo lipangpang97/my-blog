@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../components/login.vue'
 import Home from '../components/home.vue'
+import Arts from '../components/articles/articles.vue'
 import Artone from '../components/articles/articleone.vue'
 import Arttwo from '../components/articles/articletwo.vue'
 import Artthree from '../components/articles/articlethree.vue'
@@ -15,6 +16,7 @@ const router = new VueRouter({
             { path: '/artone', component: Artone },
             { path: '/arttwo', component: Arttwo },
             { path: '/artthree', component: Artthree },
+            { path: '/articles', component: Arts },
         ]
     })
     // 挂载路由导航守卫

@@ -7,28 +7,17 @@ import $ from 'jquery'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
-// 导入弹框组件
-// import { Message } from 'element-ui'
 
-
-
-
-// import { Button } from 'element-ui';
-// import { Form, FormItem } from 'element-ui';
-// import { Input } from 'element-ui';
 
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import axios from 'axios'
 import qs from 'qs'
-// import { from } from 'core-js/fn/array'
+
 axios.defaults.baseURL = 'http://ajax.frontend.itheima.net'
 Vue.use(ElementUI);
 
-// Vue.use(Button)
-// Vue.use(Form)
-// Vue.use(FormItem)
-// Vue.use(Input)
+
 Vue.prototype.$ = $
 Vue.prototype.$http = axios
 Vue.prototype.$qs = qs
@@ -38,5 +27,6 @@ new Vue({
     el: '#app',
     router,
     store,
-    render: h => h(App)
+    render: h => h(App),
+  
 }).$mount('#app')

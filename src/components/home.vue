@@ -15,7 +15,7 @@
 
         <!-- 文章列表 -->
          <el-link
-          href="http://localhost:8080/#/ariticles"
+          href="http://localhost:8080/#/articles"
           target="_blank"
           style="font-size: 15px"
           class="first-page"
@@ -262,15 +262,7 @@ export default {
       flex-direction: column;
       justify-content: center;
       padding: 30px;
-      // background-color: blueviolet;
-
-      .article-image {
-      }
-
-      //       .article-item{
-      // flex: 80%;
-      // background-color: blueviolet;
-      //       }
+   
     }
   }
 
