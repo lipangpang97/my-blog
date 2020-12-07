@@ -20,8 +20,9 @@ import 'bootstrap/dist/js/bootstrap.min.js'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import axios from 'axios'
+import qs from 'qs'
 // import { from } from 'core-js/fn/array'
-axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
+axios.defaults.baseURL = 'http://ajax.frontend.itheima.net'
 Vue.use(ElementUI);
 
 // Vue.use(Button)
@@ -30,6 +31,7 @@ Vue.use(ElementUI);
 // Vue.use(Input)
 Vue.prototype.$ = $
 Vue.prototype.$http = axios
+Vue.prototype.$qs = qs
 Vue.config.productionTip = false
     // Vue.prototype.$message = Message
 new Vue({

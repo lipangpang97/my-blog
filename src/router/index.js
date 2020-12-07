@@ -2,13 +2,19 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../components/login.vue'
 import Home from '../components/home.vue'
+import Artone from '../components/articles/articleone.vue'
+import Arttwo from '../components/articles/articletwo.vue'
+import Artthree from '../components/articles/articlethree.vue'
 // import { from } from 'core-js/fn/array'
 Vue.use(VueRouter)
 const router = new VueRouter({
         routes: [
             { path: '/', redirect: '/login' },
             { path: '/login', component: Login },
-            { path: '/home', component: Home }
+            { path: '/home', component: Home },
+            { path: '/artone', component: Artone },
+            { path: '/arttwo', component: Arttwo },
+            { path: '/artthree', component: Artthree },
         ]
     })
     // 挂载路由导航守卫

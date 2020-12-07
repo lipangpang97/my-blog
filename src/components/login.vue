@@ -19,7 +19,8 @@
         <el-form-item prop="username">
           <el-input
             v-model="loginForm.username"
-            prefix-icon="el-icon-user"
+            prefix-icon="el-icon-mobile-phone"
+            placeholder="请输入手机号"
           ></el-input>
         </el-form-item>
         <!-- 密码区域 -->
@@ -27,8 +28,9 @@
           <el-input
             v-model="loginForm.password"
             prefix-icon="el-icon-unlock"
-            type="password"
-          ></el-input>
+            placeholder="请输入验证码"
+            ></el-input>
+            
         </el-form-item>
         <!-- 按钮区域 -->
         <el-form-item class="btns">
@@ -46,50 +48,59 @@ export default {
     return {
       //  这是登录表单的数据绑定对象
       loginForm: {
-        username: "admin",
-        password: "123456",
+        username: 'lipangpang',
+        password: '123456',
       },
       //  这是表单的验证规则对象
       loginFormRules: {
         // 验证用户名是否合法
         username: [
-          { required: true, message: "请输入登录名称", trigger: "blur" },
-          { min: 5, max: 12, message: "长度在 5到 10个字符", trigger: "blur" },
+          { required: true, message: '请输入登录名称', trigger: 'blur' },
+          { min: 5, max: 12, message: '长度在 5到 10个字符', trigger: 'blur' },
         ],
         // 验证密码是否合法
         password: [
-          { required: true, message: "请输入登录密码", trigger: "blur" },
-          { min: 6, max: 12, message: "长度在 6到 12个字符", trigger: "blur" },
+          { required: true, message: '请输入登录密码', trigger: 'blur' },
+          { min: 6, max: 12, message: '长度在 6到 12个字符', trigger: 'blur' },
         ],
       },
-    };
+    }
   },
   methods: {
     //  点击重置按钮，重置登录表单
     loginFormRef() {
-      this.$refs.loginFormRef.resetFields();
+      this.$refs.loginFormRef.resetFields()
     },
     login() {
-      this.$refs.loginFormRef.validate(async (valid) => {
-        if (!valid) {
-          return;
+      this.$refs.loginFormRef.validate(valid=>{
+if (!valid) {
+          return
         }
-        const { data: res } = await this.$http.post("login", this.loginForm);
-        console.log(res);
-        if (res.meta.status !== 200) {
-          return this.$message.error("登录失败");
+      
+       this.$http.post('/api/login',
+       this.$qs.stringify({
+          username:this.loginForm.username,
+      password:this.loginForm.password
+       })
+       ).then(res=>{
+         console.log(res);
+          if (res.data.status !== 0) {
+          return this.$message.error('登录失败')
         }
-        this.$message.success("登录成功");
+        this.$message.success('登录成功')
         // 将登录成功之后的token保存到客户端的sessionStorage中
-        window.sessionStorage.setItem("token", res.data.token);
+        window.sessionStorage.setItem('token', res.data.token)
         // 项目中除了登录之外的其他API接口，必须在登录之后才能访问
         // token只应在当前网站打开期间生效，所以将token保存在sessionStorage中
         // 通过编程式导航跳转到后台主页，路由地址是/home
-        this.$router.push("/home");
-      });
+        this.$router.push('/home')
+      })
+   
+     })
+//      
     },
   },
-};
+}
 </script>
 // scope指令--只在当前组件中生效
 <style lang="less" scoped>
