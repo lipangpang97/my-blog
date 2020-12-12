@@ -2,50 +2,45 @@
     <el-container class="">
     <!-- 头部区域 -->
     <el-header>
-      <div class="nav">
+      <div class="nav" style="color:#fff">
         <!-- 首页 -->
-        <el-link
-          href="http://localhost:8080/#/home"
-          target="_blank"
-          style="font-size: 15px"
-          class="first-page"
-          icon="el-icon-s-home"
-          >首页</el-link
-        >
-
-        <!-- 文章列表 -->
-         <el-link
-          href="http://localhost:8080/#/ariticles"
-          target="_blank"
-          style="font-size: 15px"
-          class="first-page"
-          icon="el-icon-s-home"
-          >文章列表</el-link
-        >
-        <!-- 文章分类 -->
-
-        <el-dropdown class="artixle-category">
-          <i
-            style="line-height: 60px; font-style: normal"
-            class="el-icon-s-order"
-            >文章分类</i
+            <el-link
+          type="primary"
+            href="http://localhost:8080/home"
+            style="font-size: 15px"
+            class="first-page"
+            icon="el-icon-s-home"
+            >首页</el-link
           >
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>查看</el-dropdown-item>
-            <el-dropdown-item>新增</el-dropdown-item>
-            <el-dropdown-item>删除</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
 
-        <!-- 生活 -->
-        <el-link
-          href=""
-          target="_blank"
-          style="font-size: 15px"
-          class="life-page"
-          icon="el-icon-camera-solid"
-          >生活</el-link
-        >
+          <!-- 文章列表 -->
+          <el-link
+          type="primary"
+            href="http://localhost:8080/articles"
+            style="font-size: 15px"
+            class="first-page"
+            icon="el-icon-s-home"
+            >文章列表</el-link
+          >
+          <!-- 文章分类 -->
+          <el-link
+           type="primary"
+            href="http://localhost:8080/regin"
+            style="font-size: 15px"
+            class="first-page"
+            icon="el-icon-s-order"
+            >文章分类</el-link
+          >
+
+          <!-- 生活 -->
+          <el-link
+           type="primary"
+            href="http://localhost:8080/life"
+            style="font-size: 15px"
+            class="life-page"
+            icon="el-icon-camera-solid"
+            >关于我</el-link
+          >
       </div>
       <div class="logout">
         <el-button type="info" @click="logout" class="btnLogout"
@@ -60,13 +55,13 @@
  <el-card class="box-card">
 
     <el-table
-    :data="tableData"
+    :data="this.$store.state.tableData"
     border
     style="width: 100%">
     <el-table-column
       fixed
       prop="date"
-      label="日期"
+      label="创建日期"
       width="150">
     </el-table-column>
     <el-table-column
@@ -77,7 +72,7 @@
    
   
     <el-table-column
-      prop="region"
+      prop="regin"
       label="分类"
       width="400">
     </el-table-column>
@@ -106,10 +101,11 @@
       <el-input v-model="form.name" autocomplete="off" disabled="ture"></el-input>
     </el-form-item>
     <el-form-item label="分类" :label-width="formLabelWidth">
-      <el-select v-model="form.region" placeholder="请选择类别">
-        <el-option label="前端问题概述" value="前端问题概述"></el-option>
+      <el-select v-model="form.regin" placeholder="请选择类别">
+        <el-option label="前端技术总结" value="前端技术总结"></el-option>
         <el-option label="学习笔记" value="学习笔记"></el-option>
-         <el-option label="生活感悟" value="生活感悟"></el-option>
+         <el-option label="日语散文摘抄" value="日语散文摘抄"></el-option>
+         
       </el-select>
     </el-form-item>
   </el-form>
@@ -127,38 +123,29 @@
 export default {
       data() {
       return {
-        tableData: [{
-          date: '2016-05-02',
-          name: '',
-          region: '  ',
+        // tableData: [{
+        //   date: '2020-12-02',
+        //   name: '',
+        //   region: ' 前端技术总结 ',
          
-        }, {
-          date: '2016-05-04',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          region: '上海市普陀区金沙江路 1517 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-01',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          region: '上海市普陀区金沙江路 1519 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-03',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          region: '上海市普陀区金沙江路 1516 弄',
-          zip: 200333
-        }],
+        // }, {
+        //    date: '2020-12-02',
+        //   name: '',
+        //   region: ' 前端技术总结 ',
+        // }, {
+        //   date: '2020-12-02',
+        //   name: '',
+        //   region: '  学习笔记',
+        // }, {
+        //   date: '2020-12-02',
+        //   name: '',
+        //   region: ' 生活感悟 ',
+        // }],
        
         dialogFormVisible: false,
         form: {
           name: '',
-          region: '',
+          regin: '',
           date1: '',
           date2: '',
           delivery: false,
@@ -188,16 +175,19 @@ this.$router.push('/artone')
             else if(index==2){
                 this.$router.push('/artthree')
             }
+            else if(index==3){
+                this.$router.push('/artfour')
+            }
             
         },
         edit(index){
  this.dialogFormVisible = true;
 //  const index=$event.currentTarget.index
  console.log(index);
- console.log(this.tableData[index]);
+ console.log(this.$store.state.tableData[index]);
  this.form.index=index
- this.form.name=this.tableData[index].name
-his.form.region=this.tableData[index].region
+ this.form.name=this.$store.state.tableData[index].name
+this.form.regin=this.$store.state.tableData[index].regin
         },
         sure(){
 this.dialogFormVisible = false
@@ -205,8 +195,8 @@ this.dialogFormVisible = false
  const index=this.form.index
 
 
-this.tableData[index].name= this.form.name
-this.tableData[index].region= this.form.region
+this.$store.state.tableData[index].name= this.form.name
+this.$store.state.tableData[index].regin= this.form.regin
 
         }
        

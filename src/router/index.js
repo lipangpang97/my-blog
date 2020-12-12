@@ -6,9 +6,17 @@ import Arts from '../components/articles/articles.vue'
 import Artone from '../components/articles/articleone.vue'
 import Arttwo from '../components/articles/articletwo.vue'
 import Artthree from '../components/articles/articlethree.vue'
+import Artfour from '../components/articles/articlefour.vue'
+import Regin from '../components/regin.vue'
+import Life from '../components/life.vue'
+
+import Reginone from '../components/regin/reginone.vue'
+
 // import { from } from 'core-js/fn/array'
 Vue.use(VueRouter)
 const router = new VueRouter({
+        mode: 'history',
+
         routes: [
             { path: '/', redirect: '/login' },
             { path: '/login', component: Login },
@@ -16,7 +24,11 @@ const router = new VueRouter({
             { path: '/artone', component: Artone },
             { path: '/arttwo', component: Arttwo },
             { path: '/artthree', component: Artthree },
+            { path: '/artfour', component: Artfour },
             { path: '/articles', component: Arts },
+            { path: '/regin', component: Regin },
+            { path: '/life', component: Life },
+            { path: '/reginone', component: Reginone },
         ]
     })
     // 挂载路由导航守卫

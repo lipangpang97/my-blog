@@ -2,50 +2,48 @@
   <el-container class="home-container">
     <!-- 头部区域 -->
     <el-header>
-      <div class="nav">
+      <div class="nav" >
         <!-- 首页 -->
-        <el-link
-          href="http://localhost:8080/#/home"
-          target="_blank"
-          style="font-size: 15px"
-          class="first-page"
-          icon="el-icon-s-home"
-          >首页</el-link
-        >
-
-        <!-- 文章列表 -->
-         <el-link
-          href="http://localhost:8080/#/articles"
-          target="_blank"
-          style="font-size: 15px"
-          class="first-page"
-          icon="el-icon-s-home"
-          >文章列表</el-link
-        >
-        <!-- 文章分类 -->
-
-        <el-dropdown class="artixle-category">
-          <i
-            style="line-height: 60px; font-style: normal"
-            class="el-icon-s-order"
-            >文章分类</i
+        <template>
+       
+          <el-link
+          type="primary"
+            href="http://localhost:8080/home"
+            style="font-size: 15px"
+            class="first-page"
+            icon="el-icon-s-home"
+            >首页</el-link
           >
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>查看</el-dropdown-item>
-            <el-dropdown-item>新增</el-dropdown-item>
-            <el-dropdown-item>删除</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
 
-        <!-- 生活 -->
-        <el-link
-          href=""
-          target="_blank"
-          style="font-size: 15px"
-          class="life-page"
-          icon="el-icon-camera-solid"
-          >生活</el-link
-        >
+          <!-- 文章列表 -->
+          <el-link
+          type="primary"
+            href="http://localhost:8080/articles"
+            style="font-size: 15px"
+            class="first-page"
+            icon="el-icon-s-home"
+            >文章列表</el-link
+          >
+          <!-- 文章分类 -->
+          <el-link
+           type="primary"
+            href="http://localhost:8080/regin"
+            style="font-size: 15px"
+            class="first-page"
+            icon="el-icon-s-order"
+            >文章分类</el-link
+          >
+
+          <!-- 生活 -->
+          <el-link
+           type="primary"
+            href="http://localhost:8080/life"
+            style="font-size: 15px"
+            class="life-page"
+            icon="el-icon-camera-solid"
+            >关于我</el-link
+          >
+        </template>
       </div>
       <div class="logout">
         <el-button type="info" @click="logout" class="btnLogout"
@@ -55,123 +53,155 @@
     </el-header>
     <!-- 主体区域 -->
     <el-main>
-      <!-- 文章展示区域-->
-      <div class="articles">
-        <!-- 文章展示一 -->
-        <el-row>
-          <el-col>
-            <el-card :body-style="{ padding: '0px' }"  >
-              <div class="bottom clearfix" style="text-align: center">
-                <h4 style="font-weight: 700">标题1</h4>
-                <time class="time">{{ currentDate }}</time>
-                <el-button type="text" class="button">操作按钮</el-button>
-              </div>
-              <div class="article-dis" @click='toArticle1' @mouseover="mouseOver($event)" @mouseleave="mouseLeave($event)">
-                <div class="article-item">
-                  关于“教养”最常见的迷思就是：“正确的教养方法会养育出好孩子，他们之后会成长为优秀的成年人”。这样一种“处方式”的养育观念，从根本上是错误的。
-                  　　对于大多数成年人来讲，在工作中，专业知识能够将人导向成功。
-                </div>
-                <img
-                  src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-                  class="article-image"
-                />
-              </div>
-            </el-card>
-          </el-col>
-        </el-row>
-        <!-- 文章展示二-->
-        <el-row @click="toArticle2">
-          <el-col>
-            <el-card :body-style="{ padding: '0px' }">
-              <div class="bottom clearfix" style="text-align: center">
-                <h4 style="font-weight: 700">标题1</h4>
-                <time class="time">{{ currentDate }}</time>
-                <el-button type="text" class="button">操作按钮</el-button>
-              </div>
-              <div class="article-dis">
-                <div class="article-item">
-                  关于“教养”最常见的迷思就是：“正确的教养方法会养育出好孩子，他们之后会成长为优秀的成年人”。这样一种“处方式”的养育观念，从根本上是错误的。
-                  　　对于大多数成年人来讲，在工作中，专业知识能够将人导向成功。
-                </div>
-                <img
-                  src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-                  class="article-image"
-                />
-              </div>
-            </el-card>
-          </el-col>
-        </el-row>
-        <!-- 文章展示三 -->
-        <el-row>
-          <el-col>
-            <el-card :body-style="{ padding: '0px' }">
-              <div class="bottom clearfix" style="text-align: center">
-                <h4 style="font-weight: 700">标题1</h4>
-                <time class="time">{{ currentDate }}</time>
-                <el-button type="text" class="button">操作按钮</el-button>
-              </div>
-              <div class="article-dis">
-                <div class="article-item">
-                  关于“教养”最常见的迷思就是：“正确的教养方法会养育出好孩子，他们之后会成长为优秀的成年人”。这样一种“处方式”的养育观念，从根本上是错误的。
-                  　　对于大多数成年人来讲，在工作中，专业知识能够将人导向成功。
-                </div>
-                <img
-                  src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-                  class="article-image"
-                />
-              </div>
-            </el-card>
-          </el-col>
-        </el-row>
-      </div>
-      <!-- 心情展示区域 -->
+      <!-- 照片展示区域 -->
+
       <div class="mood-display">
-        <el-card class="box-card">
-          <div slot="header" class="clearfix">
-            <span>卡片名称</span>
-          </div>
-        </el-card>
-        <el-card class="box-card">
-          <div class="text item">
-            <ul>
-              <li class="el-icon-potato-strips">1</li>
-              <li class="el-icon-potato-strips">1</li>
-              <li class="el-icon-potato-strips">1</li>
-              <li class="el-icon-potato-strips">1</li>
-              <li class="el-icon-potato-strips">1</li>
-            </ul>
-          </div>
-        </el-card>
+        <el-carousel :interval="4000" type="card" height="332px" :fit="cover">
+          <el-carousel-item>
+            <h3 class="medium"></h3>
+            <img src="../assets/mm2.jpg" style="height: 332px" object-fit="contain"/>
+          </el-carousel-item>
+          <el-carousel-item>
+            <h3 class="medium"></h3>
+            <img src="../assets/mm1.jpg" style="height: 332px" />
+          </el-carousel-item>
+          <el-carousel-item>
+            <h3 class="medium"></h3>
+            <img src="../assets/mm3.jpg" style="height: 332px" />
+          </el-carousel-item>
+          <el-carousel-item>
+            <h3 class="medium"></h3>
+            <img src="../assets/mm4.jpg" style="height: 332px" />
+          </el-carousel-item>
+          <el-carousel-item>
+            <h3 class="medium"></h3>
+            <img src="../assets/mm.jpg" style="height: 400px" />
+          </el-carousel-item>
+        </el-carousel>
       </div>
 
-      <!-- 图片展示区域 -->
-      <!-- <div class="demo-image">
-  <div class="block" v-for="fit in fits" :key="fit">
-    <span class="demonstration">{{ fit }}</span>
-    <el-image
-      style="width: 100px; height: 100px"
-      :src="url"
-      :fit="fit"></el-image>
-  </div>
-</div> -->
+      <!-- 文章展示区域-->
+      <div class="articles">
+        <!-- 文章展示区一 -->
+        <div id="art1">
+          <!-- 文章1 -->
+          <el-row>
+            <el-col>
+              <el-card :body-style="{ padding: '0px' }">
+                <div
+                  class="art-image"
+                  style="text-align: center"
+                  @mouseover="mask"
+                  @mouseleave="maskoff"
+                  @click="toArticle1"
+                >
+                  <img src="../assets/fish.jpg"  />
+                  <div class="mask" v-show="flag" style="width:">看一看吧</div>
+                </div>
+                <div class="article-dis" @click="toArticle1">
+                  <div class="article-item">
+                    构造函数的继承<br />
+                    构造函数有许多继承的方法，如call（）或apply（）方法，<br />原型对象方法，拷贝继承等......
+                  </div>
+                </div>
+              </el-card>
+            </el-col>
+          </el-row>
+          <!-- 文章展示二-->
+          <el-row>
+            <el-col>
+              <el-card :body-style="{ padding: '0px' }">
+                <div
+                  class="art-image"
+                  style="text-align: center"
+                  @mouseover="mask2"
+                  @mouseleave="maskoff2"
+                  @click="toArticle2"
+                >
+                  <img src="../assets/cat.jpg" />
+                  <div class="mask" v-show="flag2">看一看吧</div>
+                </div>
+                <div class="article-dis">
+                  <div class="article-item">解决vue中使用axios请求格式问题</div>
+                </div>
+              </el-card>
+            </el-col>
+          </el-row>
+        </div>
+        <!-- 文章展示区二 -->
+        <div id="art1">
+          <!-- 文章1 -->
+          <el-row>
+            <el-col>
+              <el-card :body-style="{ padding: '0px' }">
+                <div
+                  class="art-image"
+                  style="text-align: center"
+                  @mouseover="mask3"
+                  @mouseleave="maskoff3"
+                  @click="toArticle3"
+                >
+                  <img src="../assets/fengjing2.jpeg" />
+                  <div
+                    class="mask"
+                    v-show="flag3"
+                    
+                  >
+                    看一看吧
+                  </div>
+                </div>
+                <div class="article-dis">
+                  <div class="article-item">
+                    IT日语词汇<br />パスワード：密码<br />ユーザー：用户
+                  </div>
+                </div>
+              </el-card>
+            </el-col>
+          </el-row>
+          <!-- 文章展示二-->
+          <el-row>
+            <el-col>
+              <el-card :body-style="{ padding: '0px' }">
+                <div
+                  class="art-image"
+                  style="text-align: center"
+                  @mouseover="mask4"
+                  @mouseleave="maskoff4"
+                  @click="toArticle4"
+                >
+                  <img src="../assets/fengjing3.jpg" />
+                  <div
+                    class="mask"
+                    v-show="flag4"
+                   
+                  >
+                    看一看吧
+                  </div>
+                </div>
+                <div class="article-dis">
+                  <div class="article-item">
+                    关于日语邮件用语常见的误区<br />川上商事営业部各位様 　
+                    　　　　（误）<br />
+                    　　川上商事営业部各位 　　　　　　（正）
+                  </div>
+                </div>
+              </el-card>
+            </el-col>
+          </el-row>
+        </div>
+      </div>
     </el-main>
-    <!-- 底部区域 -->
-    <!-- <el-footer>Footer</el-footer> -->
   </el-container>
 </template>
 
 <script>
-// $(".first-page").onmouseover();
 export default {
   data() {
     return {
-      currentDate: new Date(),
-      fits: ['fill', 'contain', 'cover', 'none', 'scale-down'],
-      url:
-        'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
-      // article:{
-      // art1:''
-      // }
+      flag: false,
+      flag2: false,
+      flag3: false,
+      flag4: false,
     }
   },
   methods: {
@@ -183,16 +213,40 @@ export default {
     },
     toArticle1() {
       this.$router.push('/artone')
-      this.$('.articles el-row').css('background-color','gray')
-    },
-    mouseOver($event){
-    $event.currentTarget.className="changeColor"
-    },
-    mouseLeave($event){
-      $event.currentTarget.className="article-dis"
     },
     toArticle2() {
       this.$router.push('/arttwo')
+    },
+    toArticle3() {
+      this.$router.push('/artthree')
+    },
+    toArticle4() {
+      this.$router.push('/artfour')
+    },
+
+    mask() {
+      this.flag = true
+    },
+    maskoff() {
+      this.flag = false
+    },
+    mask2() {
+      this.flag2 = true
+    },
+    maskoff2() {
+      this.flag2 = false
+    },
+    mask3() {
+      this.flag3 = true
+    },
+    maskoff3() {
+      this.flag3 = false
+    },
+    mask4() {
+      this.flag4 = true
+    },
+    maskoff4() {
+      this.flag4 = false
     },
   },
 }
@@ -243,55 +297,88 @@ export default {
 }
 
 .el-main {
-  display: flex;
-  padding-top: 40px;
-  // .main{
-  //   background-color: rosybrown;
-  // }
-
   .articles {
-    flex: 70%;
     margin-right: 10px;
-
-    .el-row {
-      margin-top: 20px;
-    }
 
     .article-dis {
       display: flex;
       flex-direction: column;
       justify-content: center;
+
       padding: 30px;
-   
+      // background-color:  #E4E7ED;
     }
   }
+  .el-carousel__item h3 {
+    color: #475669;
+    font-size: 14px;
+    opacity: 0.75;
+    line-height: 200px;
+    margin: 0;
+  }
+  .el-carousel__item:nth-child(2n) {
+    background-color: #99a9bf;
+  }
 
-  .mood-display {
-    flex: 30%;
+  .el-carousel__item:nth-child(2n + 1) {
+    background-color: #d3dce6;
+  }
+
+  // .el-card {
+  //   margin-top: 20px;
+  // }
+}
+#art1 {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 40px;
+  background-color: rgba(255, 255, 255, 0.5);
+
+  .el-row {
+    margin-top: 50px;
+
+    .el-card2 {
+      margin-left: 50px;
+    }
 
     .el-card {
-      margin-top: 20px;
+      height: 600px;
+      padding: 15px;
+
+      .art-image {
+        position: relative;
+        width: 494px;
+        height: 350px;
+        overflow: hidden;
+
+       img{
+         width: 494px;
+        height: 350px;
+       } 
+
+        .mask {
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          width: 494px;
+        height: 350px;
+          text-align: center;
+          line-height: 350px;
+          color: #ffffff;
+          font-size: 20px;
+          background-color: rgba(0, 0, 0, 0.3);
+        }
+      }
     }
   }
 }
-ul {
-  padding: 0;
-  margin: 0;
-}
-li {
-  list-style: none;
-  width: 100%;
-  border-bottom: 1px gray solid;
-  margin-bottom: 30px;
-}
-.text {
-  padding: 10px;
-}
-.changeColor{
-   display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 30px;
-  background-color: #909399;
+
+.changeColor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
+  background-color: #e4e7ed;
 }
 </style>

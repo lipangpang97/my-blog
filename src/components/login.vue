@@ -26,9 +26,10 @@
         <!-- 密码区域 -->
         <el-form-item prop="password">
           <el-input
+          type="password"
             v-model="loginForm.password"
             prefix-icon="el-icon-unlock"
-            placeholder="请输入验证码"
+            placeholder="请输入密码"
             ></el-input>
             
         </el-form-item>
